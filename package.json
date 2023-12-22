@@ -1,7 +1,7 @@
 {
   "name": "3osa",
   "version": "1.0.0",
-  "description": "3 osan tehtävät",
+  "description": "3-osan tehtävät",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
