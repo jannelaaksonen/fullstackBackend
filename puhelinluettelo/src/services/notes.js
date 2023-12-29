@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = '/api/persons';
+const baseUrl = 'mongodb+srv://jannelaaksonen:jannelaaksonen@cluster0.ijjekgr.mongodb.net/?retryWrites=true&w=majority';
 
 const getAll = () => {
     return axios.get(baseUrl)
