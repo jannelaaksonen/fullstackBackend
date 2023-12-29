@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = '/api/persons';
+const baseUrl = 'https://cloud.mongodb.com/v2/658bd18a7142f07ece0ac399#/metrics/replicaSet/658bd7105d9af6265d041eae/explorer/puhelinluettelo/people/find';
 
 const getAll = () => {
     return axios.get(baseUrl)

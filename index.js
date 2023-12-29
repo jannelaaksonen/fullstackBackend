@@ -16,8 +16,8 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :p
 let persons = []
 
 app.get('/api/persons', (request, response) => {
-  Person.find({}).then(notes => {
-    response.json(notes)
+  Person.find({}).then(persons => {
+    response.json(persons)
   })
   });
 
@@ -27,17 +27,22 @@ app.get('/info', (request, response) => {
   
   
 app.get('/api/persons/:id', (request, response) => {
-  Note.findById(request.params.id).then(note => {
+  Person.findById(request.params.id).then(note => {
     response.json(note)
   })
 })
 
 app.delete('/api/persons/:id', (request, response) => {
-    const id = Number(request.params.id)
-    persons = persons.filter(person => person.id !== id)
-  
-    response.status(204).end()
-  })
+  const id = request.params.id;
+  Person.findByIdAndRemove(id)
+    .then(() => {
+      response.status(204).end();
+    })
+    .catch(error => {
+      console.error('Error deleting person:', error);
+      response.status(500).json({ error: 'Internal Server Error' });
+    });
+})
   
 const generateId = () => {
     min = Math.ceil(1);
